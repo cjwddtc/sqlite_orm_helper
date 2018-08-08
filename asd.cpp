@@ -215,7 +215,7 @@ int main(int argc, char** argv)
     ddb<decltype(storage)> a = storage;
     a.transform([](Employee& a) { std::cout << a.address << std::endl; });
     a.transform(columns(&Employee::id, &Employee::name, &Employee::age),
-                [](int a, std::string b, int c) {
+                [](auto a,auto b,auto c) {
                     std::cout << a << b << c << std::endl;
                 });
 }
